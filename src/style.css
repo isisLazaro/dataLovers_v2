@@ -1,3 +1,26 @@
-* {
-    padding: .2rem 0;
+.navbar {
+  height: 12vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  border-radius: 0px;
+}
+
+#pagination-box {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  width: 3.5%;
+  /* border: none; */
+}
+.section {
+  padding: 4.9rem 1.5rem 0.5rem;
+}
+
+.footer {
+  padding: 1rem 1.5rem;
 }
