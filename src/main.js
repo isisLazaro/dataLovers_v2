@@ -22,7 +22,7 @@ const loadPage = async urlPage => {
       resultsByCharacter.map(e => {
         const card = document.createElement("div");
         card.className =
-          "column is-half-mobile column is-half-tablet is-one-quarter-desktop column is-one-fifth-widescreen";
+          "column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop ";
         //card.className = "card";
         card.innerHTML = `<img src = ${e.image}><h2 class="has-text-centered has-text-dark has-text-weight-medium is-size-5">${e.name}</h2>`;
         cardBoard.appendChild(card);
@@ -41,8 +41,6 @@ const loadPage = async urlPage => {
             <input class="input is-static has-text-right has-text-weight-bold" type="text" value = ${page} readonly>
             <input class="input is-static has-text-centered" type="text" value = "/" readonly>
             <input class="input is-static has-text-left" type="text" value = ${totalPages} readonly>
-            <!--<label for = "prev-btn"> ${page} </label>
-            <label for = "next-btn"> / ${totalPages} </label>-->
             <button id = "next-btn" class = "button is-link">
                 <span>next</span>
                 <span class="icon"> <i class="fas fa-angle-right fa-lg"></i></span>
