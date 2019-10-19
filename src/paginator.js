@@ -1,5 +1,5 @@
 const paginator = {
-  paginatorStructure: (paginationBox, page, totalPages) => {
+  paginatorHTML: (paginationBox, page, totalPages) => {
     paginationBox.innerHTML = /* html */ `
     <!-- pagination widget -->
     <button id = "first-btn" class = "button is-link is-outlined">
@@ -21,6 +21,30 @@ const paginator = {
         <span  class="span-text">last</span>
         <span class="icon"> <i class="fas fa-angle-double-right fa-lg"></i></span>
     </button>`;
+  },
+  directionBtnsFn: (
+    prevPage,
+    nextPage,
+    firstBtn,
+    prevBtn,
+    nextBtn,
+    lastBtn
+  ) => {
+    if (prevPage == "") {
+      prevBtn.disabled = true;
+      firstBtn.disabled = true;
+    } else {
+      prevBtn.disabled = false;
+      firstBtn.disabled = false;
+    }
+
+    if (nextPage == "") {
+      nextBtn.disabled = true;
+      lastBtn.disabled = true;
+    } else {
+      nextBtn.disabled = false;
+      lastBtn.disabled = false;
+    }
   }
 };
 export default paginator;
