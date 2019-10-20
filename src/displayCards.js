@@ -1,5 +1,6 @@
 const displayCards = {
-  readDataCharacters: (resultsByCharacter, cardBoard) => {
+  readData: (resultsByCharacter, cardBoard) => {
+    cardBoard.innerHTML = "";
     resultsByCharacter.map(e => {
       const card = document.createElement("div");
       card.className =

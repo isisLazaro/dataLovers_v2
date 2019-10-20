@@ -21,29 +21,34 @@ const paginator = {
         <span  class="span-text">last</span>
         <span class="icon"> <i class="fas fa-angle-double-right fa-lg"></i></span>
     </button>`;
+
+    const firstBtn = document.getElementById("first-btn");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const lastBtn = document.getElementById("last-btn");
+
+    return [firstBtn, prevBtn, nextBtn, lastBtn];
   },
-  directionBtnsFn: (
-    prevPage,
-    nextPage,
-    firstBtn,
-    prevBtn,
-    nextBtn,
-    lastBtn
-  ) => {
+
+  btnsState: (prevPage, nextPage, paginatorBtns) => {
+    //#FIXME: operador terciario
+    // paginatorButtons = [firstBtn, prevBtn, nextBtn, lastBtn]
     if (prevPage == "") {
-      prevBtn.disabled = true;
-      firstBtn.disabled = true;
+      paginatorBtns[1].disabled = true;
+      paginatorBtns[0].disabled = true;
+      //prevBtn.disabled = true;
+      //   firstBtn.disabled = true;
     } else {
-      prevBtn.disabled = false;
-      firstBtn.disabled = false;
+      paginatorBtns[1].disabled = false;
+      paginatorBtns[0].disabled = false;
     }
 
     if (nextPage == "") {
-      nextBtn.disabled = true;
-      lastBtn.disabled = true;
+      paginatorBtns[2].disabled = true;
+      paginatorBtns[3].disabled = true;
     } else {
-      nextBtn.disabled = false;
-      lastBtn.disabled = false;
+      paginatorBtns[2].disabled = false;
+      paginatorBtns[3].disabled = false;
     }
   }
 };
