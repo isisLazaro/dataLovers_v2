@@ -28,9 +28,9 @@
 }
 
 @media only screen and (max-width: 768px) {
-  main {
+  /* main {
     background: rgb(153, 202, 186);
-  }
+  } */
   /*  .button {
     font-size: 0.8rem;
   }
