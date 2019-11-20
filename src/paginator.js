@@ -1,5 +1,7 @@
+import loadPage from "./fetchBasic.js";
+
 const paginator = {
-  paginatorHTML: (paginationBox, page, totalPages) => {
+  btnsHTML: (paginationBox, page, totalPages) => {
     paginationBox.innerHTML = /* html */ `
     <!-- pagination widget -->
     <button id = "first-btn" class = "button is-link is-outlined">
@@ -22,34 +24,57 @@ const paginator = {
         <span class="icon"> <i class="fas fa-angle-double-right fa-lg"></i></span>
     </button>`;
 
-    const firstBtn = document.getElementById("first-btn");
-    const prevBtn = document.getElementById("prev-btn");
-    const nextBtn = document.getElementById("next-btn");
-    const lastBtn = document.getElementById("last-btn");
+    const firstPageBtn = document.getElementById("first-btn");
+    const prevPageBtn = document.getElementById("prev-btn");
+    const nextPageBtn = document.getElementById("next-btn");
+    const lastPageBtn = document.getElementById("last-btn");
 
-    return [firstBtn, prevBtn, nextBtn, lastBtn];
+    return [firstPageBtn, prevPageBtn, nextPageBtn, lastPageBtn];
   },
 
-  btnsState: (prevPage, nextPage, paginatorBtns) => {
-    //#FIXME: operador terciario
-    // paginatorButtons = [firstBtn, prevBtn, nextBtn, lastBtn]
-    if (prevPage == "") {
-      paginatorBtns[1].disabled = true;
-      paginatorBtns[0].disabled = true;
-      //prevBtn.disabled = true;
-      //   firstBtn.disabled = true;
+  btnsState: (prevPage = "", nextPage = "", paginatorBtns = []) => {
+    //#FIXME: operador ternario
+    const [firstPageBtn, prevPageBtn, nextPageBtn, lastPageBtn] = paginatorBtns;
+
+    if (prevPage === "") {
+      prevPageBtn.disabled = true;
+      firstPageBtn.disabled = true;
     } else {
-      paginatorBtns[1].disabled = false;
-      paginatorBtns[0].disabled = false;
+      prevPageBtn.disabled = false;
+      firstPageBtn.disabled = false;
     }
 
-    if (nextPage == "") {
-      paginatorBtns[2].disabled = true;
-      paginatorBtns[3].disabled = true;
+    if (nextPage === "") {
+      nextPageBtn.disabled = true;
+      lastPageBtn.disabled = true;
     } else {
-      paginatorBtns[2].disabled = false;
-      paginatorBtns[3].disabled = false;
+      nextPageBtn.disabled = false;
+      lastPageBtn.disabled = false;
     }
+  },
+
+  btnsFn: (prevPage, nextPage, totalPages, paginatorBtns, currentPage) => {
+    const [firstPageBtn, prevPageBtn, nextPageBtn, lastPageBtn] = paginatorBtns;
+
+    firstPageBtn.addEventListener("click", event => {
+      event.preventDefault();
+      loadPage(1);
+    });
+
+    prevPageBtn.addEventListener("click", event => {
+      event.preventDefault();
+      loadPage(prevPage);
+    });
+
+    nextPageBtn.addEventListener("click", event => {
+      event.preventDefault();
+      loadPage(nextPage);
+    });
+
+    lastPageBtn.addEventListener("click", event => {
+      event.preventDefault();
+      loadPage(totalPages);
+    });
   }
 };
 export default paginator;

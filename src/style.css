@@ -10,6 +10,10 @@
   border-radius: 0px;
 }
 
+.section-cards {
+  margin-top: 150px;
+}
+
 #pagination-box {
   display: flex;
   justify-content: center;
